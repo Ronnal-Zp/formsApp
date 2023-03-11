@@ -15,8 +15,6 @@ import { ReactivesModule } from './reactive/reactives.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    TemplateModule,
-    ReactivesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

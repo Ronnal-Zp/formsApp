@@ -1,1 +1,27 @@
-<p>sidemenu works!</p>
+
+<h4>Template Forms</h4>
+<hr>
+
+<ul class="list-group mb-3">
+    <a  *ngFor="let item of templateMenu" 
+        [routerLink]="item.route"
+        class="list-group-item list-group-item-action text-capitalize">
+        {{ item.title }}
+    </a>
+</ul>
+
+
+
+<h4>Reactive Forms</h4>
+<hr>
+
+<ul class="list-group">
+    <a  *ngFor="let item of reactivesMenu" 
+        [routerLink]="item.route"
+        class="list-group-item list-group-item-action text-capitalize">
+        {{ item.title }}
+    </a>
+</ul>
+
+
+
