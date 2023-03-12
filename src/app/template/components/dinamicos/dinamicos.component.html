@@ -1,1 +1,65 @@
-<p>dinamicos works!</p>
+<h5>Template: Dinamicos</h5>
+<hr>
+
+<form (ngSubmit)="enviar()" #myForm="ngForm" autocomplete="off">
+
+    <!-- CAMPO PERSONA -->
+    <div class="mb-3 row">
+        <label for="basicPersona" class="col-sm-3 col-form-label">Persona</label>
+        <div class="col-sm-9">
+            
+            <input  [ngModel]="persona.nombre"
+                    name="persona" 
+                    type="text" 
+                    class="form-control" 
+                    id="basicPersona" 
+                    required>
+
+            <div *ngIf="isValidPersona()" class="form-text text-danger">
+               ¡Este campo es requerido!
+            </div>
+        </div>
+    </div>
+
+    <!-- AÑADIR FAVORITOS -->
+    <div class="mb-3 row">
+        <label for="favoritoDynamic" class="col-sm-3 col-form-label">Favorito</label>
+        <div class="col-sm-9">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="nuevoFavorito" type="text" class="form-control" name="nuevoFavorito"  aria-label="Recipient's username" >
+                <button (click)="agregarFavorito()"class="btn btn-outline-primary" type="button" id="favoritoDynamic">Añadir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTADO FAVORITOS -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Favoritos</label>
+        <div class="col-sm-9">
+
+            <div class="input-group mb-3" *ngFor="let fav of persona.favoritos; let i = index">
+                <input name="favorito_{{ fav.id }}"
+                       [(ngModel)]="fav.nombre"
+                       type="text" 
+                       class="form-control"
+                       required>
+
+                <button (click)="elimiarFavorito( i )" class="btn btn-outline-danger" type="button">Elimiar</button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    
+    <div class="mt-3">
+        <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary float-end">Guardar</button>
+    </div>
+</form>
+
+
+<div class="row">
+    <div class="col">
+        <pre>{{ persona | json }}</pre>
+    </div>
+</div>
