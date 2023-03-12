@@ -1,1 +1,87 @@
-<p>basicos works!</p>
+<h5>Reactivos: Básicos</h5>
+<hr>
+
+
+
+<form autocomplete="off">
+
+    <!-- CAMPO PRODUCTO -->
+    <div class="mb-3 row">
+        <label for="basicProducto" class="col-sm-3 col-form-label">Producto</label>
+        <div class="col-sm-9">
+            
+            <input  type="text" 
+                    class="form-control" 
+                    id="basicProducto">
+
+            <div class="form-text text-danger">
+                Debe tener al menos 4 caracteres   
+            </div>
+        </div>
+    </div>
+
+    <!-- CAMPO PRECIO -->
+    <div class="mb-3 row">
+        <label for="basicPrecio" class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+
+            <input  type="number" 
+                    class="form-control" 
+                    id="basicPrecio">
+
+            <div class="form-text text-danger">
+                Debe ser mayor a 0
+            </div>
+        </div>
+    </div>
+
+    <!-- CAMPO EXISTENCIA -->
+    <div class="mb-3 row">
+        <label for="basicExistencia" class="col-sm-3 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+
+            <input  type="number" 
+                    class="form-control" 
+                    id="basicExistencia">
+
+            <div class="form-text text-danger">
+                Debe ser mayor a 0
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary float-end">Guardar</button>
+    </div>
+</form>
+
+
+<!-- <div class="row">
+    <div class="col">
+        <div class="mb-3">
+            <div><b>Valido:</b></div>
+            <span> {{ myForm.valid }} </span>
+        </div>
+
+        <div class="mb-1">
+            <span><b>Data:</b></span>
+            <pre>{{ myForm.value | json }}</pre>
+        </div>
+
+        <div class="mb-1">
+            <div><b>Touched:</b></div>
+            <span>{{ myForm.touched }}</span>
+        </div>
+
+        <div class="mb-1">
+            <div><b>Pristine:</b></div>
+            <span>{{ myForm.pristine }}</span>
+        </div>
+
+        <div class="mb-1">
+            <div><b>CustomMin:</b></div>
+            <span>{{ myForm.controls['existencia']?.errors | json }}</span>
+        </div>
+    </div>
+</div> -->
