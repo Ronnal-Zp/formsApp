@@ -1,1 +1,86 @@
-<p>switches works!</p>
+<h5>Template: Switches</h5>
+<hr>
+
+
+<form (ngSubmit)="enviar()" #myForm="ngForm" autocomplete="off">
+
+    <!-- RADIO -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Genero:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input  class="form-check-input" 
+                        type="radio" 
+                        [(ngModel)]="persona.genero"
+                        value="F"
+                        name="radioGenero" 
+                        id="radioMasculino">
+
+                <label class="form-check-label" for="radioMasculino">
+                  Femenino
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input  class="form-check-input" 
+                        type="radio" 
+                        [(ngModel)]="persona.genero"
+                        value="M"
+                        name="radioGenero" 
+                        id="radioFemenino">
+
+                <label class="form-check-label" for="radioFemenino">
+                  Masculino
+                </label>
+              </div>
+        </div>
+    </div>
+
+    <!-- SWITCH -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Notificaciones</label>
+        <div class="col-sm-9">
+            <div class="form-check form-switch">
+                <input  class="form-check-input" 
+                        type="checkbox" 
+                        [(ngModel)]="persona.terminoYcondiciones"
+                        name="termino"
+                        role="switch" 
+                        id="notificaciones">
+
+                <label class="form-check-label" for="notificaciones">Quiero recibir notificaciones</label>
+              </div>
+        </div>
+    </div>
+
+    <!-- CHECKBOX -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input  class="form-check-input" 
+                        type="checkbox" 
+                        [(ngModel)]="persona.notificaiones"
+                        name="notificaciones" 
+                        id="terminos">
+
+                <label class="form-check-label" for="terminos">
+                  Terminos y condiciones
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-3">
+        <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary float-end">Guardar</button>
+    </div>
+</form>
+
+
+<div class="row">
+    <div class="col">
+        <div>Formulario: </div>
+        <pre>{{ myForm.value | json }}</pre>
+    </div>
+</div>
