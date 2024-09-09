@@ -1,16 +1,19 @@
 <h2>Reactivos: <small> Dinámicos </small></h2>
 <hr>
 
-<form autocomplete="off">
+<form [formGroup]="form" (submit)="onSubmit()" autocomplete="off">
 
     <!-- Nombre -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Nombre</label>
         <div class="col-sm-9">
-            <input class="form-control"
+            <input formControlName="name"
+                   class="form-control"
                    placeholder="Nombre de la persona">
-            <span class="form-text text-danger">
-                   error message
+
+            <span *ngIf="isValidField('name')"
+                   class="form-text text-danger">
+                 {{ getMessageError('name') }}
             </span>
         </div>
     </div>
@@ -37,22 +40,23 @@
     <!-- Lista de Juegos Favoritos -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9" formArrayName="favoriteGames">
 
-            <div class="mb-1">
-
+            <div  *ngFor="let item of favoriteGames.controls; let i = index;"
+                  class="mb-1">
                 <div class="input-group">
-                    <input class="form-control">
+                    <input [formControlName]="i" class="form-control">
 
                     <button class="btn btn-outline-danger"
                             type="button">
                       Eliminar
                   </button>
                 </div>
-                <span class="form-text text-danger">
-                   Este campo es requerido
-                </span>
 
+                <span *ngIf="isValidFieldInArray(favoriteGames, i)"
+                   class="form-text text-danger">
+                    Este campo es requerido
+                </span>
             </div>
 
         </div>
